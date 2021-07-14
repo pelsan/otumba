@@ -1,0 +1,35 @@
+Updating, Creating new package on pipy
+On terminal write:
+
+python setup.py sdist
+
+pip install twine
+
+# Testing package by uploading on test.pipy.org
+
+twine upload --repository-url https://test.pypi.org/legacy/ dist/*
+
+# Test install package from test.pipy.org
+
+pip install --index-url https://test.pypi.org/simple/ otumba
+
+# Uninstall 
+
+pip uninstall otumba
+
+# Install package on production (pipy.org) , the owner this package is user: otumba
+
+twine upload dist/*
+
+# To update the package you have to delete otumba.egg.info folder, dist folder and
+# you have to change the setup.py on line version to the next number version.
+# for example  0.2:
+
+      version='0.2',
+
+and execute again all the commands:
+
+python setup.py sdist
+
+etc..
+
