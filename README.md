@@ -41,5 +41,7 @@ Windows: To open Jupyter Notebook:
 
 
 test_pytorch_packages.ipynb:  	For validate Cuda/Pytorch/Otumba and others installed packages
+
 test_kubernetes.ipynb			For validate Kubernetes and Minikube from python
+
 test_prometheus.ipynb			For validate Prometheus from python
