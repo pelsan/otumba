@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-deployment
+  namespace: monitoring
+  labels:
+    app: prometheus-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: prometheus-server
+  template:
+    metadata:
+      labels:
+        app: prometheus-server
+    spec:
+      containers:
+        - name: prometheus
+          image: prom/prometheus
+          args:
+            - "--storage.tsdb.retention.time=12h"
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--storage.tsdb.path=/prometheus/"
+          ports:
+            - containerPort: 9090
+          resources:
+            requests:
+              cpu: 500m
+              memory: 500M
+            limits:
+              cpu: 1
+              memory: 1Gi
+#here we mount prometheus config map as volume on prometheus container on /etc...              
+          volumeMounts:
+            - name: prometheus-config-volume
+              mountPath: /etc/prometheus/
+            - name: prometheus-storage-volume
+              mountPath: /prometheus/
+      volumes:
+        - name: prometheus-config-volume
+          configMap:
+            defaultMode: 420
+            name: prometheus-server-conf
+  
+        - name: prometheus-storage-volume
+          emptyDir: {}
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: prometheus-service
+  namespace: monitoring
+  labels:
+    app: prometheus-server
+  annotations:
+      prometheus.io/scrape: 'true'
+      prometheus.io/port:   '9090'
+spec:   
+  ports:
+  - name: prometheus-server
+###########################################
+#The port expose the service internally within the cluster and will all incomming request made to this port,
+#to the pods selected buy this service
+#Regarding iana.org Port numbers are assigned in various ways, based on three ranges: System
+#Ports (0-1023), User Ports (1024-49151), and the Dynamic and/or Private
+#Ports (49152-65535)
+###########################################
+    port: 8280
+###########################################
+#The port number that make the service visible outside the cluster
+#Port range available minikube 30000-32767
+###########################################
+    nodePort : 30000 
+###########################################
+#The port on define on the pod that the request gets send to
+###########################################
+    targetPort: 9090
+  #type: LoadBalancer
+  type: NodePort
+  selector:
+   app: prometheus-server

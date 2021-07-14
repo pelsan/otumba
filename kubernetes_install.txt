@@ -1,0 +1,31 @@
+Install kubernetes:
+
+Check first that you computer meet the virtualization requirement
+
+grep -E --color 'vmx|svm' /proc/cpuinfo
+    if you dont get nothing may be you have to enable this at bios computer.
+
+
+curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.20.0/bin/linux/amd64/kubectl && chmod +x kubectl
+
+sudo mv ./kubectl /usr/local/bin/kubectl
+
+Install minikube:
+
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64   && chmod +x minikube
+
+sudo mkdir -p /usr/local/bin/
+
+sudo install minikube /usr/local/bin/
+
+
+Check that kubernetes and minikube is installed:
+
+kubectl version --client
+
+minikube start 
+
+this will open a new web browser that show the dashboard minikube:
+
+minikube dashboard
+

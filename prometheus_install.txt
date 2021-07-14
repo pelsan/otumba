@@ -1,0 +1,31 @@
+Prometheus install
+Create a new namespace on kubernetes named "monitoring"
+
+    kubectl create namespace monitoring
+
+change to directory named "monitoring"  and execute this yaml files in order to install Prometheus and give permitions on that namespace (monitoring)
+
+    kubectl apply -f authorization-prometheus.yaml
+    kubectl apply -f configmap-prometheus.yaml
+    kubectl apply -f deployment-prometheus.yaml
+
+check that your prometheus pod is running:
+
+    kubectl get pods -n monitoring
+    kubectl describe pods -n monitoring
+
+check the ip of minikube 
+
+    minikube ip
+
+    for example the ip is: 192.168.49.2
+
+we can open on a web browser and check Prometheus that is installed on 30000 port 
+
+    http://192.168.49.2:30000/
+
+you can execute this Prometheus query to check that all is ok:
+
+    container_cpu_cfs_periods_total
+
+    you can see the result on Table or you can select Graph option

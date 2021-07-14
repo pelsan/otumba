@@ -1,0 +1,39 @@
+1 (windows).- NVIDIA CARDS : If you have a Nvidia VidCard you can use Pytorch and train your model faster, follow this intructions for Windows:
+	
+Install the latest nvidia driver [here](https://www.nvidia.com/es-la/geforce/drivers/)
+
+Install CUDA Kit [here, and note the version to be 11.0 ](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
+
+1 (linux).- NVIDIA CARDS : If you have a Nvidia VidCard you can use Pytorch and train your model faster, follow this intructions for Linux:
+	
+Install the latest nvidia driver [here](https://www.nvidia.com/es-la/geforce/drivers/)  for  Ubuntu use "Software & Updates" program to instal nvidia driver instead
+
+Install CUDA Kit [here, and note the version to be 11.0 ](https://developer.nvidia.com/cuda-downloads?target_os=Linux)
+
+
+2.- Install AnaConda [here](https://www.anaconda.com/products/individual)
+
+3.- Create a kernel "otumba" on AnaConda and install pytorch, torchvision with cuda support and packages needed:  
+
+	on your menu on windows , select "Anaconda3" - and then "Anaconda Prompt" it will open a new command window then 
+     (For another S.O. please refer  (https://docs.anaconda.com/anaconda/install/verify-install/) ):
+
+	conda create --name otumba python=3.6
+
+	conda activate otumba
+
+	conda install -c anaconda ipykernel
+	
+	python -m ipykernel install --user --name otumba --display-name "otumba"
+
+	pip install otumba
+
+	pip install prometheus-api-client
+
+	pip install kubernetes
+
+	pip install matplotlib
+
+	conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch
+
+

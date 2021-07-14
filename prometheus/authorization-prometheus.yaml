@@ -1,0 +1,38 @@
+#prometheus use a kubernetes APIs to read availables metrics from an object, 
+#we need a RBAC (Role Based Access Control) policy with read access
+#Role or CluseterRole contains rules that represents a set of permissions.
+#A Role always sets permissions within a particular namespace; when you create a Role, you have to specify the namespace it belongs in.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: prometheus
+rules:
+- apiGroups: [""]
+  resources:
+  - nodes
+  - nodes/proxy
+  - services
+  - endpoints
+  - pods
+  verbs: ["get", "list", "watch"]
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses
+  verbs: ["get", "list", "watch"]
+- nonResourceURLs: ["/metrics"]
+  verbs: ["get"]
+---
+#ClusterRoleBinding to grant permission across a whole cluster to any user of previusly ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: prometheus
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: prometheus
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: monitoring
