@@ -24,37 +24,46 @@ The instruccion 1 is for Windows 10 Users with NVIDIA VideoCards, another S.O. p
 
 ### Core Instructions
 
-1.- NVIDIA CARDS : If you have a Nvidia VidCard you can use Pytorch and train your model faster, follow this intructions for Windows:
+1 (windows).- NVIDIA CARDS : If you have a Nvidia VidCard you can use Pytorch and train your model faster, follow this intructions for Windows:
 	
 Install the latest nvidia driver [here](https://www.nvidia.com/es-la/geforce/drivers/)
 
-Install Visual Studio 2019 16x (needed for CUDA) [here](https://visualstudio.microsoft.com/es/downloads/)
-
 Install CUDA Kit [here, and note the version to be 11.0 ](https://docs.nvidia.com/cuda/cuda-installation-guide-microsoft-windows/index.html)
+
+1 (linux).- NVIDIA CARDS : If you have a Nvidia VidCard you can use Pytorch and train your model faster, follow this intructions for Linux:
+	
+Install the latest nvidia driver [here](https://www.nvidia.com/es-la/geforce/drivers/)  for  Ubuntu use "Software & Updates" program to instal nvidia driver instead
+
+Install CUDA Kit [here, and note the version to be 11.0 ](https://developer.nvidia.com/cuda-downloads?target_os=Linux)
+
 
 2.- Install AnaConda [here](https://www.anaconda.com/products/individual)
 
-3.- Create a kernel "drlnd" on AnaConda and install pytorch, torchvision with cuda support, gym enviroment, mlagents and unityagents: 
+3.- Create a kernel "otumba" on AnaConda and install pytorch, torchvision with cuda support and packages needed:  
 
 	on your menu on windows , select "Anaconda3" - and then "Anaconda Prompt" it will open a new command window then 
      (For another S.O. please refer  (https://docs.anaconda.com/anaconda/install/verify-install/) ):
 
-	conda create --name drlnd python=3.6
+	conda create --name otumba python=3.6
 
-	conda activate drlnd
+	conda activate otumba
 
 	conda install -c anaconda ipykernel
 	
-	python -m ipykernel install --user --name drlnd --display-name "drlnd"
+	python -m ipykernel install --user --name otumba --display-name "otumba"
 
-	pip install mlagents
+	pip install otumba
 
-	pip install unityagents --user
+	pip install prometheus-api-client
 
-	pip install torchvision===0.8.2 -f https://download.pytorch.org/whl/torch_stable.html
+	pip install kubernetes
+
+	pip install matplotlib
+
+	conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch
 
 
-4.- Download the github project (git clone https://github.com/pelsan/Continuous-Control.git) and open Continuous_Control.ipynb on Jupyter
+4.- Download the github project (git clone https://github.com/pelsan/otumba.git) 
 
 
 5.- Download the environment from one of the links below.  You need only select the environment that matches your operating system:
