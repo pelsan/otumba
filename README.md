@@ -20,7 +20,7 @@ Core Instructions: The principal configuration that we need to have kubernetes, 
 
 ### Core Instructions
 
-Install and validate Anaconda, Jupyter, pytorch, otumba packages and other packages needed  [here](https://github.com/pelsan/otumba/anaconda_otumba_install.txt)
+Install and validate Anaconda, Jupyter, pytorch, otumba packages and other packages needed  [here](https://github.com/pelsan/otumba/blob/main/anaconda_otumba_install.txt)
 
 Install and validate Docker [here](https://github.com/pelsan/otumba/blob/main/docker_install.txt)
 
