@@ -3,7 +3,7 @@ Create a new namespace on kubernetes named "monitoring"
 
     kubectl create namespace monitoring
 
-change to directory named "monitoring"  and execute this yaml files in order to install Prometheus and give permitions on that namespace (monitoring)
+change to directory named "monitoring"  and execute this yaml files in order to install Prometheus and give permissions on that namespace (monitoring)
 
     kubectl apply -f authorization-prometheus.yaml
     kubectl apply -f configmap-prometheus.yaml
