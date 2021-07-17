@@ -40,8 +40,8 @@ Windows: To open Jupyter Notebook:
 	Menu - Anaconda - Jupyter
 
 
-test_pytorch_packages.ipynb:  	For validate Cuda/Pytorch/Otumba and others installed packages
+test_pytorch_packages.ipynb:  	validate Cuda/Pytorch/Otumba and others installed packages
 
-test_kubernetes.ipynb			For validate Kubernetes and Minikube from python
+test_kubernetes.ipynb			validate Kubernetes and Minikube from python
 
-test_prometheus.ipynb			For validate Prometheus from python
+test_prometheus.ipynb			validate Prometheus from python
