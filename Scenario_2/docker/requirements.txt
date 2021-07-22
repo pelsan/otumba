@@ -1,0 +1,3 @@
+otumba==0.2.2
+Flask==2.0.0
+mysql-connector-python==8.0.26

@@ -1,0 +1,79 @@
+docker build --tag python-docker .
+docker images
+##docker tag python-docker:latest python-docker:v1.0.0
+docker run --publish 5000:5000 python-docker
+docker ps 
+
+Database mysql
+docker volume create mysql
+docker volume create mysql_config
+docker network create mysqlnet
+
+
+docker run --rm -d -v mysql:/var/lib/mysql \
+  -v mysql_config:/etc/mysql -p 3306:3306 \
+  --network mysqlnet \
+  --name mysqldb \
+  -e MYSQL_ROOT_PASSWORD=p@ssw0rd1 \
+  mysql
+
+validate mysql Database
+
+docker exec -ti mysqldb mysql -u root -p
+
+[CTRL]+[D]
+
+
+docker build --tag python-docker-dev .
+
+docker run \
+  --rm -d \
+  --network mysqlnet \
+  --name rest-server \
+  -p 5000:5000 \
+  python-docker-dev
+
+-----docker-compose.dev.yml--------------
+version: '3.8'
+
+services:
+ web:
+  build:
+   context: .
+  ports:
+  - 5000:5000
+  volumes:
+  - ./:/app
+
+ mysqldb:
+  image: mysql
+  ports:
+  - 3306:3306
+  environment:
+  - MYSQL_ROOT_PASSWORD=p@ssw0rd1
+  volumes:
+  - mysql:/var/lib/mysql
+  - mysql_config:/etc/mysql
+
+volumes:
+  mysql:
+  mysql_config:
+-----------------------------------------
+
+docker-compose -f docker-compose.dev.yml up --build
+
+Some modification to source code
+docker build --tag python-docker-dev .
+docker-compose -f docker-compose.dev.yml up --build
+
+----upload to dockerhub -----------
+
+docker tag python-docker:latest pelsan/otumba-scn2:0.0.1
+
+docker login 
+
+docker push pelsan/otumba-scn2:0.0.1
+
+
+docker tag python-docker-dev:latest pelsan/otumba-scn2:0.0.2
+docker push pelsan/otumba-scn2:0.0.2
