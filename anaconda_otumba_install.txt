@@ -34,6 +34,10 @@ Install CUDA Kit [here, and note the version to be 11.0 ](https://developer.nvid
 
 	pip install matplotlib
 
+	pip install seaborn
+
+    pip install psycopg2-binary
+	
 	conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch
 
 

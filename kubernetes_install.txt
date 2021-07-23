@@ -23,6 +23,7 @@ Check that kubernetes and minikube is installed:
 
 kubectl version --client
 
+(if minikube doesnt start may be need a restart in order to have access about docker instalation)
 minikube start 
 
 this will open a new web browser that show the dashboard minikube:
