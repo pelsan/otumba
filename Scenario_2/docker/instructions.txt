@@ -77,3 +77,9 @@ docker push pelsan/otumba-scn2:0.0.1
 
 docker tag python-docker-dev:latest pelsan/otumba-scn2:0.0.2
 docker push pelsan/otumba-scn2:0.0.2
+
+------------actualizar docker ---------
+docker build --tag python-docker-dev .
+donde 0.0.3 es la nueva version a poner
+docker tag python-docker-dev:latest pelsan/otumba-scn2:0.0.3
+docker push pelsan/otumba-scn2:0.0.3

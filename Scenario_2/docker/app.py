@@ -10,9 +10,9 @@ app = Flask(__name__)
 @app.route('/status')
 def healthcheck():
     mydb = mysql.connector.connect(
-      host="mysqldb",
+      host="mysql",
       user="root",
-      password="p@ssw0rd1",
+      password="password",
       database="inventory"
     )
     cursor = mydb.cursor()
@@ -29,9 +29,9 @@ def healthcheck():
 @app.route('/metrics')
 def metrics():
     mydb = mysql.connector.connect(
-      host="mysqldb",
+      host="mysql",
       user="root",
-      password="p@ssw0rd1",
+      password="password",
       database="inventory"
     )
     cursor = mydb.cursor()
@@ -41,7 +41,6 @@ def metrics():
     result_widgets = cursor.fetchall()
 
     response = app.response_class(
-            #response=json.dumps({"status":"success","code":0,"data":{"UserCount":140,"UserCountActive":23}}),
             response=json.dumps({"status":"success","code":0,"data":{"UserCount":result_users[0][0],"widgets":result_widgets[0][0]}}),
             status=200,
             mimetype='application/json'
@@ -60,9 +59,9 @@ def hello():
 @app.route('/widgets')
 def get_widgets() :
   mydb = mysql.connector.connect(
-    host="mysqldb",
+    host="mysql",
     user="root",
-    password="p@ssw0rd1",
+    password="password",
     database="inventory"
   )
   cursor = mydb.cursor()
@@ -84,9 +83,9 @@ def get_widgets() :
 @app.route('/users')
 def get_users() :
   mydb = mysql.connector.connect(
-    host="mysqldb",
+    host="mysql",
     user="root",
-    password="p@ssw0rd1",
+    password="password",
     database="inventory"
   )
   cursor = mydb.cursor()
@@ -109,9 +108,9 @@ def get_users() :
 @app.route('/insert_widget')
 def insert_widget():
   mydb = mysql.connector.connect(
-    host="mysqldb",
+    host="mysql",
     user="root",
-    password="p@ssw0rd1",
+    password="password",
     database="inventory"
   )
   cursor = mydb.cursor()
@@ -126,9 +125,9 @@ def insert_widget():
 @app.route('/insert_user')
 def insert_user():
   mydb = mysql.connector.connect(
-    host="mysqldb",
+    host="mysql",
     user="root",
-    password="p@ssw0rd1",
+    password="password",
     database="inventory"
   )
   cursor = mydb.cursor()
@@ -143,9 +142,9 @@ def insert_user():
 @app.route('/initdb')
 def db_init():
   mydb = mysql.connector.connect(
-    host="mysqldb",
+    host="mysql",
     user="root",
-    password="p@ssw0rd1"
+    password="password"
   )
   cursor = mydb.cursor()
 
@@ -154,9 +153,9 @@ def db_init():
   cursor.close()
 
   mydb = mysql.connector.connect(
-    host="mysqldb",
+    host="mysql",
     user="root",
-    password="p@ssw0rd1",
+    password="password",
     database="inventory"
   )
   cursor = mydb.cursor()
