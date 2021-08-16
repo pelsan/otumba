@@ -22,6 +22,9 @@ Core Instructions: The principal configuration that we need to have kubernetes, 
 
 Install and validate Anaconda, Jupyter, pytorch, otumba packages and other packages needed  [here](https://github.com/pelsan/otumba/blob/main/anaconda_otumba_install.txt)
 
+Download the github project (git clone https://github.com/pelsan/otumba.git) 
+
+
 Install and validate Docker [here](https://github.com/pelsan/otumba/blob/main/docker_install.txt)
 
 Install and validate Kubernetes and minikube [here](https://github.com/pelsan/otumba/blob/main/kubernetes_install.txt)
@@ -29,7 +32,6 @@ Install and validate Kubernetes and minikube [here](https://github.com/pelsan/ot
 Install and validate Prometheus [here](https://github.com/pelsan/otumba/blob/main/prometheus_install.txt)
 
 
-Download the github project (git clone https://github.com/pelsan/otumba.git) 
 
 Use the notebooks on "validate" folder to check installation and validate connection (check that otumba kernel is configured on your notebook files that are you using)
 
