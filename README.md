@@ -4,11 +4,9 @@
 
 ### Introduction
 
-This project, we train agents on diferents scenarios in order to control the sizing with high load transaction. 
-
-A reward is provided when the agent get a stable systems, thats no drops on the petition of the systems and get a minimal of pods in order to save costs.
-
-The state space  has diferents dimentions depends the kind of pods to watch.
+This project, we train agents diferents scenarios in order to detect anomalies.
+Scenario 1 Http Server
+Scenario 2 Microservice + Database 
 
 
 ### Getting Started
