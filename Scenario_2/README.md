@@ -30,3 +30,4 @@ CREATE TABLE users (id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY, name
 check number records vs request
 
 select count(*) from users;
+
