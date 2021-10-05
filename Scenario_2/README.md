@@ -5,6 +5,7 @@ Install MySQL Pod
 Follow instruction on folder database_mysql
 
 kubectl apply -f ./database_mysql/mysql-deployment.yaml
+
 kubectl apply -f ./database_mysql/mysql-pv.yaml
 
 Install microservice deployment: 
