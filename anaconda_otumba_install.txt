@@ -40,4 +40,4 @@ Install CUDA Kit [here, and note the version to be 11.0 ](https://developer.nvid
 	
 	conda install pytorch torchvision torchaudio cudatoolkit=11.0 -c pytorch
 
-
+    (Windows: conda install -c intel mkl-service)
