@@ -30,3 +30,5 @@ this will open a new web browser that show the dashboard minikube:
 
 minikube dashboard
 
+(Windows Inatall minikube https://minikube.sigs.k8s.io/docs/start/)
+
